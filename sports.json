@@ -1,0 +1,17 @@
+[
+    { "id": 1, "nom": "Course à pied", "caloriesParMinute": 10, "repas": "Pâtes complètes au poulet et brocolis (Glucides lents)" },
+    { "id": 2, "nom": "Cyclisme", "caloriesParMinute": 8, "repas": "Riz basmati, poisson blanc et épinards" },
+    { "id": 3, "nom": "Natation", "caloriesParMinute": 12, "repas": "Salade de quinoa, avocat et thon" },
+    { "id": 4, "nom": "Yoga", "caloriesParMinute": 4, "repas": "Smoothie bowl aux fruits frais et graines de chia" },
+    { "id": 5, "nom": "Musculation", "caloriesParMinute": 6, "repas": "Omelette aux blancs d'œufs, dinde et patate douce (Protéines)" },
+    { "id": 6, "nom": "Football", "caloriesParMinute": 9, "repas": "Lasagnes à la bolognaise et salade verte" },
+    { "id": 7, "nom": "Basketball", "caloriesParMinute": 8, "repas": "Bowl de riz, haricots rouges et poulet grillé" },
+    { "id": 8, "nom": "Tennis", "caloriesParMinute": 7, "repas": "Sandwich complet au poulet, crudités et houmous" },
+    { "id": 9, "nom": "Boxe", "caloriesParMinute": 13, "repas": "Steak de bœuf, riz sauvage et asperges" },
+    { "id": 10, "nom": "Crossfit", "caloriesParMinute": 15, "repas": "Saumon grillé, lentilles corail et légumes vapeur" },
+    { "id": 11, "nom": "Pilates", "caloriesParMinute": 5, "repas": "Yaourt grec avec granola et baies" },
+    { "id": 12, "nom": "Randonnée", "caloriesParMinute": 6, "repas": "Mélange de noix, fruits secs et barre de céréales maison" },
+    { "id": 13, "nom": "Escalade", "caloriesParMinute": 11, "repas": "Wrap au poulet, fromage frais et poivrons" },
+    { "id": 14, "nom": "Danse", "caloriesParMinute": 7, "repas": "Salade de fruits et fromage blanc" },
+    { "id": 15, "nom": "Ski", "caloriesParMinute": 9, "repas": "Tartiflette légère ou soupe de légumes épaisse" }
+]

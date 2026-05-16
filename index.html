@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportTrack | Votre Coach Personnel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-running"></i>
+                <span>SportTrack</span>
+            </div>
+            <nav>
+                <ul id="main-nav">
+                    <li class="nav-item active" data-page="dashboard"><a href="#"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li class="nav-item" data-page="history"><a href="#"><i class="fas fa-history"></i> Historique</a></li>
+                    <li class="nav-item" data-page="profile"><a href="#"><i class="fas fa-user-cog"></i> Profil</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>&copy; 2026 SportTrack</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="welcome-text">
+                    <h1>Bonjour, <span id="user-display-name">Champion</span> !</h1>
+                    <p id="welcome-message">Prêt pour votre séance d'aujourd'hui ?</p>
+                </div>
+                <div class="user-profile">
+                    <img id="user-avatar" src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" alt="Profile">
+                </div>
+            </header>
+
+            <!-- SECTION DASHBOARD -->
+            <div id="page-dashboard" class="page-content">
+                <!-- NOUVEAU : Barre de progression de l'objectif -->
+                <section class="goal-progress-card card">
+                    <div class="goal-header">
+                        <h3><i class="fas fa-trophy"></i> Objectif du jour</h3>
+                        <span id="goal-text">0 / 0 min</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="goal-progress-bar" class="progress-fill"></div>
+                    </div>
+                    <p id="goal-message" class="goal-message">Continuez comme ça !</p>
+                </section>
+
+                <section class="stats-container">
+                    <div class="stat-card blue">
+                        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Sessions</span>
+                            <h3 id="total-sessions">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Minutes</span>
+                            <h3 id="total-minutes">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Calories</span>
+                            <h3 id="total-calories">0</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="content-grid">
+                    <section class="add-section card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-plus-circle"></i> Nouvelle Séance</h2>
+                        </div>
+                        <form id="sport-form">
+                            <div class="form-group">
+                                <label for="sport-select">Discipline</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <select id="sport-select" required>
+                                        <option value="">Chargement...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="duration">Durée (min)</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-stopwatch"></i>
+                                        <input type="number" id="duration" min="1" required placeholder="30">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <input type="date" id="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-submit">
+                                <span>Enregistrer la séance</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </section>
+
+                    <section class="history-preview card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-bolt"></i> Activités Récentes</h2>
+                        </div>
+                        <div id="dashboard-sessions-container" class="sessions-list">
+                            <!-- Aperçu des dernières sessions -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- SECTION HISTORIQUE COMPLET -->
+            <div id="page-history" class="page-content hidden">
+                <section class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Historique Complet</h2>
+                        <div class="header-actions">
+                            <button id="clear-history" class="btn-secondary"><i class="fas fa-trash"></i> Tout effacer</button>
+                        </div>
+                    </div>
+                    <div id="full-sessions-container" class="sessions-list-full">
+                        <!-- Liste complète des sessions -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- SECTION PROFIL -->
+            <div id="page-profile" class="page-content hidden">
+                <div class="profile-grid">
+                    <section class="card profile-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-user-edit"></i> Paramètres du Profil</h2>
+                        </div>
+                        <form id="profile-form">
+                            <div class="profile-avatar-setup">
+                                <img id="profile-preview" src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" alt="Avatar Preview">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-name">Votre Nom / Pseudo</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="profile-name" placeholder="Ex: Jean Sport" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-weight">Poids (kg)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-weight"></i>
+                                    <input type="number" id="profile-weight" placeholder="Ex: 70.5" min="1" step="0.1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-height">Taille (cm)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <input type="number" id="profile-height" placeholder="Ex: 175.5" min="1" step="0.1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-goal">Objectif quotidien (minutes)</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-bullseye"></i>
+                                <input type="number" id="profile-goal" placeholder="Ex: 30" min="1">
+                            </div>
+                        </div>
+                            <button type="submit" class="btn-submit">
+                                <span>Sauvegarder le profil</span>
+                                <i class="fas fa-save"></i>
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- NOUVEAU : Conseils Santé -->
+                    <section class="card health-tips-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-heartbeat"></i> Conseil Santé</h2>
+                        </div>
+                        <div id="health-tip-container" class="health-tip-content">
+                            <i class="fas fa-lightbulb tip-icon"></i>
+                            <p id="health-tip-text">Buvez de l'eau régulièrement pour rester hydraté pendant vos séances.</p>
+                        </div>
+                        <button id="new-tip-btn" class="btn-secondary">
+                            <i class="fas fa-sync-alt"></i> Autre conseil
+                        </button>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
